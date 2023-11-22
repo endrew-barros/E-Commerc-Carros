@@ -11,7 +11,7 @@ const PORT = 3000;
 app.post('/usuarios', (req: Request, res: Response) => {
     usuarioController.criar(req.body)
         .then((result: any) => res.json(result))
-        .catch((error: any) => res.status(400).json(error));
+        .catch((error: any) => res.status(400).json({message: error.message}));
 });
 app.get('/usuarios', (req, res) => {
     usuarioController.listarTodos()
